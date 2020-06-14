@@ -78,6 +78,11 @@ def build_rename(i3, app_icons, args):
             if uniq:
                 seen = set()
                 names = [x for x in names if x not in seen and not seen.add(x)]
+
+            # Add delimiter before name if there are programs
+            if len(names) > 0:
+                names = [""] + names
+
             names = delim.join(names)
             if int(workspace.num) >= 0:
                 newname = u"{}: {}".format(workspace.num, names)
